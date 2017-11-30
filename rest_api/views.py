@@ -7,7 +7,7 @@ from rest_api.helper import distanceInKm
 from rest_api.models import Parking_Lot, User, Booking, Rated
 from rest_api.serializers import Parking_Lot_Serializer, User_Serializer, Booking_Serializer, Rated_Serializer
 
-
+# Parkings ---------------------------------
 #Parking lot Views
 @api_view(['GET'])
 def parking_distance(request,olat,olongt,km):
@@ -48,8 +48,11 @@ def parking(request):
         park = Parking_Lot.objects.get(id=request.data['id'])
         park.delete()
         return JsonResponse(park, safe=True)
+# Parkings ---------------------------------
 
 
+
+#Users --------------------------------------------------------
 #Users Views
 @api_view(['GET'])
 def users_pk(request,pk) :
@@ -72,8 +75,11 @@ def users(request):
             serializer.save()
             return JsonResponse(serializer.data, safe=True)
         return JsonResponse(serializer.errors, safe=True)
+#Users --------------------------------------------------------
 
 
+
+#Bookings -----------------------------------------------------
 #Bookings  Views
 @api_view(['GET'])
 def bookings_user(request, userid):
@@ -96,7 +102,11 @@ def bookings(request):
             serializer.save()
             return JsonResponse(serializer.data, safe=True)
         return JsonResponse(serializer.errors, safe=True)
+#Bookings -----------------------------------------------------
 
+
+
+#Ratings -----------------------------------------------------
 @api_view(['GET','POST','DELETE','PUT'])
 def ratings(request):
     #listing
@@ -113,3 +123,5 @@ def ratings(request):
             serializer.save()
             return JsonResponse(serializer.data, safe=True)
         return JsonResponse(serializer.errors, safe=True)
+
+#Ratings -----------------------------------------------------
