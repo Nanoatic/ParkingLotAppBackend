@@ -113,7 +113,7 @@ def ratings(request):
     #Get Ratings
     if(request.method== 'GET') :
         ratings = Rated.objects.all()
-        ratingsSer = Parking_Lot_Serializer(ratings,many=True);
+        ratingsSer = Rated_Serializer(ratings,many=True);
         return Response(ratingsSer.data)
 
     # To Rate

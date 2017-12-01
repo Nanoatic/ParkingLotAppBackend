@@ -13,7 +13,7 @@ class User_Serializer(serializers.ModelSerializer):
 class Booking_Serializer(serializers.ModelSerializer):
     class Meta :
         model = Booking
-        #fields = ('id', 'parking_lot', 'mat', 'date_time','penalty')
+        fields = ('id', 'parking_lot', 'mat', 'date_time','penalty')
 
 class Rated_Serializer(serializers.ModelSerializer):
     class Meta :
